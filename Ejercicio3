@@ -1,0 +1,16 @@
+import qualified Data.Map.Strict as Map
+import Data.Char (isAlpha, toLower)
+filtrar :: String -> String
+filtrar = map toLower . filter isAlpha
+contarLongitud :: String -> Map.Map String Int
+contarLongitud frase =
+    let listaPalabras = words frase
+        palabrasLimpias = map filtrar listaPalabras
+        paresDePalabras = map (\word -> (word, length word)) palabrasLimpias
+    in Map.fromList paresDePalabras
+frase :: String
+frase = "Hola a todos ITSUR"
+resultado :: Map.Map String Int
+resultado = contarLongitud frase
+main :: IO ()
+main = print resultado
