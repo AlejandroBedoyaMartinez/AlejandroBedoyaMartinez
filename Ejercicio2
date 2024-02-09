@@ -1,0 +1,13 @@
+-- Función que aplica una función a cada elemento de una lista
+funLista :: (a -> b) -> [a] -> [b]
+funLista _ [] = [] -- Caso base: la lista está vacía, por lo que no hay nada que Aplicar
+funLista f (x:xs) = f x : funLista f xs -- Aplicar la función al primer elemento y recursivamente al resto de la lista
+-- Ejemplo de función a Aplicar
+funcionAplicar :: Int -> Int
+funcionAplicar x = x * 2
+-- Ejemplo de uso en la función main
+main :: IO ()
+main = do
+    let resultados = funLista funcionAplicar [1, 2, 3, 4, 5] -- Corrección: calcular resultados antes de imprimirlos
+    putStrLn "Resultados:"
+    mapM_ print resultados
