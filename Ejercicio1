@@ -1,0 +1,32 @@
+-- Definición de tipos
+type Precio = Float
+type Porcentaje = Float
+type Producto = (String, Precio, Porcentaje)
+type Cesta = [Producto]
+
+-- Función que aplica un descuento a un precio
+calDesc :: Precio -> Porcentaje -> Precio
+calDesc precio descuento = precio - (precio * descuento / 100)
+
+-- Función que aplica el IVA a un precio
+calIVA :: Precio -> Porcentaje -> Precio
+calIVA precio iva = precio + (precio * iva / 100)
+
+-- Función que calcula el precio final de una cesta de compra
+precioCesta :: Cesta -> (Precio -> Porcentaje -> Precio) -> Porcentaje -> Precio
+precioCesta cesta funcion porcentaje = sum [funcion precio porcentaje | (producto, precio, _) <- cesta]
+
+-- Función main para probar las funciones
+main :: IO ()
+main = do
+    let carrito = [("Leche", 1.5, 0), ("Pan", 1.2, 5), ("Queso", 2.0, 10)]
+    
+    -- Calcular precio final con descuento del 10%
+    let precioDescuento = precioCesta carrito calDesc 10
+    putStrLn $ "Precio final con descuento: " ++ show precioDescuento
+
+    -- Calcular precio final con IVA del 21%
+    let precioIVA = precioCesta carrito calIVA 21
+    putStrLn $ "Precio final con IVA: " ++ show precioIVA
+
+
