@@ -1,21 +1,18 @@
-import qualified Data.Map as Map
-import Data.Char (toUpper)
-data Inmueble = Inmueble { año :: Int, metros :: Int, habitaciones :: Int, garaje :: Bool, zona :: Char } deriving (Show)
-calPrecio :: Inmueble -> Float
-calPrecio inmueble = case zona inmueble of
-    'A' -> fromIntegral ((metros inmueble * 1000) + (habitaciones inmueble * 5000) + if garaje inmueble then 15000 else 0) * (1 - fromIntegral (2024 - año inmueble) / 100)
-    'B' -> fromIntegral ((metros inmueble * 1000) + (habitaciones inmueble * 5000) + if garaje inmueble then 15000 else 0) * (1 - fromIntegral (2024 - año inmueble) / 100) * 1.5
-buscarPorPresupuesto :: Float -> [Inmueble] -> [(Inmueble, Float)]
-buscarPorPresupuesto presupuesto = filter (\(inmueble, precio) -> precio <= presupuesto) . map (\inmueble -> (inmueble, calPrecio inmueble))
-inmuebles :: [Inmueble]
-inmuebles = [ Inmueble 2000 100 3 True 'A',
-              Inmueble 2012 60 2 True 'B',
-              Inmueble 1980 120 4 False 'A',
-              Inmueble 2005 75 3 True 'B',
-              Inmueble 2015 90 2 False 'A' ]
+data Calificacion = Excelente | Notable | Bueno | Suficiente | Insuficiente deriving (Show)
+calif :: Int -> Calificacion
+calif nota
+    | nota >= 95 && nota <= 100 = Excelente
+    | nota >= 85 && nota <= 94  = Notable
+    | nota >= 75 && nota <= 84  = Bueno
+    | nota >= 70 && nota <= 74  = Suficiente
+    | otherwise                 = Insuficiente
+resultado :: [Int] -> [Calificacion]
+resultado = map calif
 main :: IO ()
 main = do
-    let presupuesto = 100000  
-        inmueblesConPrecio = buscarPorPresupuesto presupuesto inmuebles
-    putStrLn "Inmuebles encontrados dentro del presupuesto:"
-    mapM_ print inmueblesConPrecio
+    let notas = [40, 77, 83, 95, 52, 60]
+        calificaciones = resultado notas
+    putStrLn "Notas originales:"
+    print notas
+    putStrLn "Calificaciones correspondientes:"
+    print calificaciones
