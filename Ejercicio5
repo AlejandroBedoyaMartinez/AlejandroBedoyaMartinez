@@ -1,0 +1,9 @@
+type Vec = [Double]
+calModulo :: Vec -> Double
+calModulo vec = sqrt (sum [x^2 | x <- vec])
+vec :: Vec
+vec = [8.0, 7.0, 2.0]
+modulo :: Double
+modulo = calModulo vec
+main :: IO ()
+main = print modulo
