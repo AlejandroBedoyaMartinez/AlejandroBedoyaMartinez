@@ -1,13 +1,17 @@
--- Función que aplica una función a cada elemento de una lista
-funLista :: (a -> b) -> [a] -> [b]
-funLista _ [] = [] -- Caso base: la lista está vacía, por lo que no hay nada que Aplicar
-funLista f (x:xs) = f x : funLista f xs -- Aplicar la función al primer elemento y recursivamente al resto de la lista
--- Ejemplo de función a Aplicar
-funcionAplicar :: Int -> Int
-funcionAplicar x = x * 2
--- Ejemplo de uso en la función main
+par :: [Int] -> [Either Int Bool]
+par = map (\x -> if even x then Right True else Left x)
+res:: [Either Int Bool] -> IO ()
+res [] = putStrLn ""
+res (x:xs) = do
+    case x of
+        Left num -> putStr (show num ++ " ")
+        Right _ -> putStr "True "
+    res xs
 main :: IO ()
 main = do
-    let resultados = funLista funcionAplicar [1, 2, 3, 4, 5] -- Corrección: calcular resultados antes de imprimirlos
-    putStrLn "Resultados:"
-    mapM_ print resultados
+    let lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        resultado = par lista
+    putStrLn "Lista original:"
+    print lista
+    putStrLn "Resultado:"
+    res resultado
