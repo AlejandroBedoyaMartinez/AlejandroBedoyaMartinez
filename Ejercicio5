@@ -1,9 +1,21 @@
-type Vec = [Double]
-calModulo :: Vec -> Double
-calModulo vec = sqrt (sum [x^2 | x <- vec])
-vec :: Vec
-vec = [8.0, 7.0, 2.0]
-modulo :: Double
-modulo = calModulo vec
+import qualified Data.Map as Map
+import Data.Char (toUpper)
+data Inmueble = Inmueble { año :: Int, metros :: Int, habitaciones :: Int, garaje :: Bool, zona :: Char } deriving (Show)
+calPrecio :: Inmueble -> Float
+calPrecio inmueble = case zona inmueble of
+    'A' -> fromIntegral ((metros inmueble * 1000) + (habitaciones inmueble * 5000) + if garaje inmueble then 15000 else 0) * (1 - fromIntegral (2024 - año inmueble) / 100)
+    'B' -> fromIntegral ((metros inmueble * 1000) + (habitaciones inmueble * 5000) + if garaje inmueble then 15000 else 0) * (1 - fromIntegral (2024 - año inmueble) / 100) * 1.5
+buscarPorPresupuesto :: Float -> [Inmueble] -> [(Inmueble, Float)]
+buscarPorPresupuesto presupuesto = filter (\(inmueble, precio) -> precio <= presupuesto) . map (\inmueble -> (inmueble, calPrecio inmueble))
+inmuebles :: [Inmueble]
+inmuebles = [ Inmueble 2000 100 3 True 'A',
+              Inmueble 2012 60 2 True 'B',
+              Inmueble 1980 120 4 False 'A',
+              Inmueble 2005 75 3 True 'B',
+              Inmueble 2015 90 2 False 'A' ]
 main :: IO ()
-main = print modulo
+main = do
+    let presupuesto = 100000  
+        inmueblesConPrecio = buscarPorPresupuesto presupuesto inmuebles
+    putStrLn "Inmuebles encontrados dentro del presupuesto:"
+    mapM_ print inmueblesConPrecio
