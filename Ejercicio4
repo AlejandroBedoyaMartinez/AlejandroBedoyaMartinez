@@ -1,20 +1,24 @@
 import qualified Data.Map as Map
 import Data.Char (toUpper)
-type Asignatura = String
-type Nota = Int
-type DiccionarioNotas = Map.Map Asignatura String
-clasificacion :: Map.Map Asignatura Nota -> DiccionarioNotas
-clasificacion = Map.mapKeys (map toUpper) . Map.map clasificaNota
-clasificaNota :: Nota -> String
-clasificaNota nota
-    | nota >= 95 = "Excelente"
-    | nota >= 85 = "Notable"
-    | nota >= 75 = "Bueno"
-    | nota >= 70 = "Suficiente"
-    | otherwise = "insuficiente"
-notas :: Map.Map Asignatura Nota
-notas = Map.fromList [("Programacion", 83), ("Ingles", 75), ("Calculo", 84)]
+data Calificacion = Excelente | Notable | Bueno | Suficiente | Insuficiente deriving (Show)
+calf :: Int -> Calificacion
+calf nota
+    | nota >= 95 = Excelente
+    | nota >= 85 = Notable
+    | nota >= 75 = Bueno
+    | nota >= 70 = Suficiente
+    | otherwise  = Insuficiente
+toUpperString :: String -> String
+toUpperString = map toUpper
+aprovatorias :: Map.Map String Int -> Map.Map String Calificacion
+aprovatorias notas = Map.fromList [(toUpperString asignatura, calf nota) | (asignatura, nota) <- Map.toList notas]
 main :: IO ()
 main = do
-    let notasClasificadas = clasificacion notas
-    print notasClasificadas
+    let notas = Map.fromList [("Logica", 70), ("Ingles", 85), ("Fisica", 55)]
+        aprobadas = aprovatorias notas
+    putStrLn "Notas originales:"
+    print notas
+    putStrLn "Calificaciones aprobadas:"
+    print aprobadas
+
+
