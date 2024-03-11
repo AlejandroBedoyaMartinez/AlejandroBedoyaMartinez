@@ -1,0 +1,62 @@
+Test suite test: RUNNING...
+FizzBuzz tests
+  fizzbuzz
+    1 is one!:          OK
+    2 is two!:          OK
+    3 is fizz!:         OK
+    4 is four!:         OK
+    5 is buzz!:         OK
+    15 is fizzbuzz!:    OK
+    18 is fizz!:        OK
+    22 is twenty two!:  OK
+    25 is buzz!:        OK
+    60 is fizzbuzz!:    OK
+    99 is fizz!:        OK
+    100 is buzz!:       OK
+  lessThan20
+    1 is one:           OK
+    2 is two:           OK
+    3 is three:         OK
+    4 is four:          OK
+    5 is five:          OK
+    6 is six:           OK
+    7 is seven:         OK
+    8 is eight:         OK
+    9 is nine:          OK
+    10 is ten:          OK
+    11 is eleven:       OK
+    12 is twelve:       OK
+    13 is thirteen:     OK
+    14 is fourteen:     OK
+    15 is fifteen:      OK
+    16 is sixteen:      OK
+    17 is seventeen:    OK
+    18 is eighteen:     OK
+    19 is nineteen:     OK
+  tens
+    2 is twenty:        OK
+    3 is thirty:        OK
+    4 is forty:         OK
+    5 is fifty:         OK
+    6 is sixty:         OK
+    7 is seventy:       OK
+    8 is eighty:        OK
+    9 is ninety:        OK
+  number
+    1 is one:           OK
+    5 is five:          OK
+    10 is ten:          OK
+    11 is eleven:       OK
+    19 is nineteen:     OK
+    20 is twenty:       OK
+    25 is twenty five:  OK
+    50 is fifty:        OK
+    59 is fifty nine:   OK
+    90 is ninety:       OK
+    91 is ninety one:   OK
+    99 is ninety nine:  OK
+    100 is one hundred: OK
+
+All 52 tests passed (0.01s)
+Test suite test: PASS
+Test suite logged to: C:\Users\USER\Documents\Haskell Pruebas\Katas\FizzBuzz\dist-newstyle\build\x86_64-windows\ghc-9.4.8\FizzBuzz-0.1.0.0\t\test\test\FizzBuzz-0.1.0.0-test.log

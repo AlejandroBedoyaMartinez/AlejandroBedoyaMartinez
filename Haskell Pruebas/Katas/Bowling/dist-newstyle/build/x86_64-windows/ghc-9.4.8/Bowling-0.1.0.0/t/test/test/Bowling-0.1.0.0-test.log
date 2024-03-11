@@ -1,0 +1,10 @@
+Test suite test: RUNNING...
+Bowling tests
+  toFrames
+    zeros are open 0 0: OK
+    ones are open 1 1:  OK
+    4+5s are open 4 5:  OK
+
+All 3 tests passed (0.00s)
+Test suite test: PASS
+Test suite logged to: C:\Users\USER\Documents\Haskell Pruebas\Katas\Bowling\dist-newstyle\build\x86_64-windows\ghc-9.4.8\Bowling-0.1.0.0\t\test\test\Bowling-0.1.0.0-test.log
