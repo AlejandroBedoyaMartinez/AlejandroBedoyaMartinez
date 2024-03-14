@@ -1,0 +1,44 @@
+Test suite test: RUNNING...
+FizzBuzz tests
+  Grupo 1
+    0:  OK
+    1:  OK
+    2:  OK
+    3:  OK
+    4:  OK
+    5:  OK
+    6:  OK
+    7:  OK
+    8:  OK
+    9:  OK
+    10: OK
+    11: OK
+    12: OK
+    13: OK
+    14: OK
+    15: OK
+    20: OK
+    30: OK
+  Grupo 2
+    16: OK
+    17: OK
+    18: OK
+    19: OK
+    20: OK
+    21: OK
+    22: OK
+    23: OK
+    24: OK
+    25: OK
+    26: OK
+    27: OK
+    28: FAIL
+      test\Tests.hs:42:
+      expected: "veintioch"
+       but got: "veintiocho"
+      Use -p '/28/' to rerun this test only.
+    29: OK
+
+1 out of 32 tests failed (0.01s)
+Test suite test: FAIL
+Test suite logged to: C:\Users\USER\Documents\Evaluacion Kata FIzzBuzz\FizzBuzz\dist-newstyle\build\x86_64-windows\ghc-9.4.8\FizzBuzz-0.1.0.0\t\test\test\FizzBuzz-0.1.0.0-test.log
