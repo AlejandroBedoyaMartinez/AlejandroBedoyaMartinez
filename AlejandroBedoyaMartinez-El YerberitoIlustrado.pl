@@ -585,7 +585,7 @@ hierba_para(cebolla,faltas_vitaminas).
 hierba_para(limon,faltas_vitaminas).
 hierba_para(zanahoria,faltas_vitaminas).
 hierba_para(aceite_bacalao,faltas_vitaminas).
-%Jano
+%Plantas Asignadas
 hierba_para(cempasuchi,parasitos_intestinales).
 hierba_para(cempasuchi,dolor_estomago).
 hierba_para(cempasuchi,abscesos).
