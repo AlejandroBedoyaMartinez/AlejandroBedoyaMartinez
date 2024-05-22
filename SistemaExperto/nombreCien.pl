@@ -1,0 +1,13 @@
+nombreCientifico(diente_leon,'Taraxacum officinale').
+nombreCientifico(digitaria,'Digitalis purpurea').
+nombreCientifico(doradilla,'Selaginella rupestris').
+nombreCientifico(cempasuchi,'Tagetes erecta').
+nombreCientifico(chaparro_amargoso,'Castela Americana').
+nombreCientifico(chicalote,'Argemone achrolenca').
+nombreCientifico(abrojo,'Tribulus cistoides').
+nombreCientifico(acanto,'Acanthus mollis').
+nombreCientifico(aceitilla,'Bidens levcantha').
+nombreCientifico(achicoria,'chicorium intybus').
+nombreCientifico(aconito,'Aconitum napellus').
+nombreCientifico(adormidera,'papaver semniferum').
+nombreCientifico(aguacate,'Persea americana').
